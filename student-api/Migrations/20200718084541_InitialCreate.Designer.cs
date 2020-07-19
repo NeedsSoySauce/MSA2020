@@ -8,7 +8,7 @@ using student_api.Data;
 
 namespace student_api.Migrations
 {
-    [DbContext(typeof(StudentContext))]
+    [DbContext(typeof(StudentDbContext))]
     [Migration("20200718084541_InitialCreate")]
     partial class InitialCreate
     {

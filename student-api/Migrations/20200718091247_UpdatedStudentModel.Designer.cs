@@ -9,7 +9,7 @@ using student_api.Data;
 
 namespace student_api.Migrations
 {
-    [DbContext(typeof(StudentContext))]
+    [DbContext(typeof(StudentDbContext))]
     [Migration("20200718091247_UpdatedStudentModel")]
     partial class UpdatedStudentModel
     {

@@ -14,9 +14,9 @@ namespace student_api.Controllers
     [ApiController]
     public class StudentsController : ControllerBase
     {
-        private readonly StudentContext _context;
+        private readonly StudentDbContext _context;
 
-        public StudentsController(StudentContext context)
+        public StudentsController(StudentDbContext context)
         {
             _context = context;
         }

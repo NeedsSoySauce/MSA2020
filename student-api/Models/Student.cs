@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace student_api.Models
@@ -21,5 +22,9 @@ namespace student_api.Models
         public int phoneNumber { get; set; }
         [Timestamp]
         public DateTime timeCreated { get; set; }
+
+        // A student can have multiple addresses
+        [JsonIgnore]
+        public List<Address> addresses { get; set; }
     }
 }

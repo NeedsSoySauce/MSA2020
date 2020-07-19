@@ -31,7 +31,7 @@ namespace student_api
             services.AddControllers();
 
             var connection = Configuration.GetConnectionString("student-db");
-            services.AddDbContext<StudentContext>(options => options.UseSqlServer(connection));
+            services.AddDbContext<StudentDbContext>(options => options.UseSqlServer(connection));
 
             services.AddSwaggerGen(c =>
             {
