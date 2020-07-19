@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -10,8 +11,7 @@ namespace student_api.Models
 {
     public class Student
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int studentId { get; set; }
         [Required, MaxLength(100)]
         public string firstName { get; set; }
@@ -20,7 +20,8 @@ namespace student_api.Models
         public string lastName { get; set; }
         public string emailAddress { get; set; }
         public int phoneNumber { get; set; }
-        [Timestamp]
+
+        [Required, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public DateTime timeCreated { get; set; }
 
         // A student can have multiple addresses

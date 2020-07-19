@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using student_api.Data;
 
 namespace student_api.Migrations
 {
     [DbContext(typeof(StudentDbContext))]
-    partial class StudentContextModelSnapshot : ModelSnapshot
+    [Migration("20200719130055_RequireTimeCreated")]
+    partial class RequireTimeCreated
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -78,6 +80,8 @@ namespace student_api.Migrations
 
                     b.Property<DateTime>("timeCreated")
                         .ValueGeneratedOnAdd()
+                        .IsRequired()
+                        .HasDefaultValueSql("GETUTCDATE()")
                         .HasColumnType("datetime2");
 
                     b.HasKey("studentId");
